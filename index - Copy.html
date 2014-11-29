@@ -1,347 +1,347 @@
-<!doctype html>
+﻿<!doctype html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 
-	<title>JS-Apps-Photo-Album</title>
-	<meta name="description" content="Photo Album">
-	<meta name="viewport" content="width=device-width">
+    <title>JS-Apps-Photo-Album</title>
+    <meta name="description" content="Photo Album">
+    <meta name="viewport" content="width=device-width">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/styles.css">
-	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
     <script type="text/javascript" src="jquery/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
-<div id="container">
-    <header id="main-header">
-        <div>
-            <div id="logo-container">
-                <img src="images/logo.png">
-            </div>
-            <form id="search">
-                <label for="search-bar"></label>
-                <input type="text" id="search-bar">
-                <input type="submit" id="search-button" value=" ">
-            </form>
-        </div>
-    </header>
-    <div id="main">
-        <section id="breadcrumbs">
+    <div id="container">
+        <header id="main-header">
             <div>
-                <section id="bc">
-                    <span>Filters: </span>
-                </section>
-                <form>
-                    <select id="filters-category" class="categories-in-dropdown"></select>
-                    <select id="filters-rating">
-                        <option>Rating (ascending)</option>
-                        <option>Rating (descending)</option>
-                        <option>Date (ascending)</option>
-                        <option>Date (descending)</option>
-                    </select>
+                <div id="logo-container">
+                    <img src="images/logo.png">
+                </div>
+                <form id="search">
+                    <label for="search-bar"></label>
+                    <input type="text" id="search-bar">
+                    <input type="submit" id="search-button" value=" ">
                 </form>
-                <div id="add-album-button" onclick="loadAddAlbum()" class="add-buttons">Add album</div>
-                <div id="add-picture-button" onclick="loadAddPicture()" class="add-buttons">Add picture</div>
-                <div id="rate-album"  class="add-buttons">Rate album</div>
             </div>
-        </section>
-        <div id="main-container" class="cf">
-
-            <!----------------------------------->
-            <!------- ALL ALBUMS ARE HERE ------->
-            <!----------------------------------->
-
-            <ul id="album-list">
-                <li class="album" onclick="openAlbum()">
-                    <h3 class="album-title">Album name example</h3>
-                    <div class="album-pic-holder">
-                        <ul>
-                            <li><img src="images/pic1.jpg"></li>
-                            <li><img src="images/pic2.jpg"></li>
-                            <li><img src="images/pic3.jpg"></li>
-                            <li><img src="images/pic4.jpg"></li>
-
-                        </ul>
-                        <div class="white-overlay"></div>
-                        <div class="hover-black"></div>
-                        <div class="icon-album-hover"></div>
-                    </div>
-                    <footer>
-                        <section class="alb-comments-f">
-                            45 com
-                        </section>
-                        <section class="alb-rating-f">
-                            5.7 / 10
-                        </section>
-                    </footer>
-                </li>
-                <li class="album" onclick="openAlbum()">
-                    <h3 class="album-title">Album name example</h3>
-                    <div class="album-pic-holder">
-                        <ul>
-                            <li><img src="images/pic5.jpg"></li>
-                            <li><img src="images/pic6.jpg"></li>
-                            <li><img src="images/pic7.jpg"></li>
-                            <li><img src="images/pic8.jpg"></li>
-                        </ul>
-                        <div class="white-overlay"></div>
-                        <div class="hover-black"></div>
-                        <div class="icon-album-hover"></div>
-                    </div>
-                    <footer>
-                        <section class="alb-comments-f">
-                            45 com
-                        </section>
-                        <section class="alb-rating-f">
-                            5.7 / 10
-                        </section>
-                    </footer>
-                </li>
-                <li class="album" onclick="openAlbum()">
-                    <h3 class="album-title">Album name example</h3>
-                    <div class="album-pic-holder">
-                        <ul>
-                            <li><img src="images/pic9.png"></li>
-                            <li><img src="images/pic10.jpg"></li>
-                            <li><img src="images/pic11.jpg"></li>
-                            <li><img src="images/pic1.jpg"></li>
-                        </ul>
-                        <div class="white-overlay"></div>
-                        <div class="hover-black"></div>
-                        <div class="icon-album-hover"></div>
-                    </div>
-                    <footer>
-                        <section class="alb-comments-f">
-                            45 com
-                        </section>
-                        <section class="alb-rating-f">
-                            5.7 / 10
-                        </section>
-                    </footer>
-                </li>
-                <li class="album" onclick="openAlbum()">
-                    <h3 class="album-title">Album name example</h3>
-                    <div class="album-pic-holder">
-                        <ul>
-                            <li><img src="images/pic7.jpg"></li>
-                            <li><img src="images/pic10.jpg"></li>
-                            <li><img src="images/pic11.jpg"></li>
-                            <li><img src="images/pic5.jpg"></li>
-                        </ul>
-                        <div class="white-overlay"></div>
-                        <div class="hover-black"></div>
-                        <div class="icon-album-hover"></div>
-                    </div>
-                    <footer>
-                        <section class="alb-comments-f">
-                            45 com
-                        </section>
-                        <section class="alb-rating-f">
-                            5.7 / 10
-                        </section>
-                    </footer>
-                </li>
-
-
-            </ul>
-        </div>
-        <div id="album-opened-container">
-            <div id="back-button" onclick="collapseAlbum()"></div>
-            <h2 id="opened-album-title">Opened Album Name </h2>
-
-            <ul id="album-images-container">
-                <li>
-                    <header>
-                        <h3>Picture title is here</h3>
-                    </header>
-                    <section>
-                        <img src="images/pic1.jpg">
-                        <div class="pic-hover" onclick="loadPopup()"></div>
+        </header>
+        <div id="main">
+            <section id="breadcrumbs">
+                <div>
+                    <section id="bc">
+                        <span>Filters: </span>
                     </section>
-                    <footer>
-                        <section class="pic-date">Date: 25.11.2014</section>
-                        <section class="pic-download">Download</section>
-                        <section class="pic-rating">Rating: 6.6 / 10</section>
-                    </footer>
-                </li>
-                <li>
-                    <header>
-                        <h3>Picture title is here</h3>
-                    </header>
-                    <section>
-                        <img src="images/pic6.jpg">
-                        <div class="pic-hover" onclick="loadPopup()"></div>
-                    </section>
-                    <footer>
-                        <section class="pic-date">Date: 25.11.2014</section>
-                        <section class="pic-download">Download</section>
-                        <section class="pic-rating">Rating: 6.6 / 10</section>
-                    </footer>
-                </li>
-                <li>
-                    <header>
-                        <h3>Picture title is here</h3>
-                    </header>
-                    <section>
-                        <img src="images/pic2.jpg">
-                        <div class="pic-hover" onclick="loadPopup()"></div>
-                    </section>
-                    <footer>
-                        <section class="pic-date">Date: 25.11.2014</section>
-                        <section class="pic-download">Download</section>
-                        <section class="pic-rating">Rating: 6.6 / 10</section>
-                    </footer>
-                </li>
-                <li>
-                    <header>
-                        <h3>Picture title is here</h3>
-                    </header>
-                    <section>
-                        <img src="images/pic3.jpg">
-                        <div class="pic-hover" onclick="loadPopup()"></div>
-                    </section>
-                    <footer>
-                        <section class="pic-date">Date: 25.11.2014</section>
-                        <section class="pic-download">Download</section>
-                        <section class="pic-rating">Rating: 6.6 / 10</section>
-                    </footer>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-    <div id="popup-picture" class="popup">
-        <div class="bodysize-close-popup" onclick="closePopup()"></div>
-        <div id="popup-picture-container">
-            <section id="popup-picture-image-container">
-                <img src="images/test1.jpg" id="pic-shown">
-            </section>
-            <section id="popup-picture-comment-container">
-                <section id="pic-all-comments">
-                    <ul>
-                        <li>
-                            <header>
-                                <span>Damian Dobrev:</span>
-                                <span>25.11.2014</span>
-                            </header>
-                            <article>
-                                The comment itself! The comment itself! The comment itself! The comment itself! The comment itself!
-                            </article>
-                        </li>
-                        <li>
-                            <header>
-                                <span>Someone Else:</span>
-                                <span>25.11.2014</span>
-                            </header>
-                            <article>
-                                The comment itself!
-                            </article>
-                        </li>
-                        <li>
-                            <header>
-                                <span>Santa Claus:</span>
-                                <span>25.11.2014</span>
-                            </header>
-                            <article>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </article>
-                        </li>
-                        <li>
-                            <header>
-                                <span>Santa Claus:</span>
-                                <span>25.11.2014</span>
-                            </header>
-                            <article>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </article>
-                        </li>
-                        <li>
-                            <header>
-                                <span>Santa Claus:</span>
-                                <span>25.11.2014</span>
-                            </header>
-                            <article>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </article>
-                        </li>
-                    </ul>
-                </section>
-                <section id="add-comment">
-                    <span class="small-title">Add a comment</span>
                     <form>
-                        <label for="name-for-pic-comment">Name: </label>
-                        <input type="text" id="name-for-pic-comment">
-                        <textarea id="comment-value"></textarea>
-                        <div id="add-comment-button" class="add-buttons">Add comment</div>
+                        <select id="filters-category" class="categories-in-dropdown"></select>
+                        <select id="filters-rating">
+                            <option>Rating (ascending)</option>
+                            <option>Rating (descending)</option>
+                            <option>Date (ascending)</option>
+                            <option>Date (descending)</option>
+                        </select>
                     </form>
-                </section>
+                    <div id="add-album-button" onclick="loadAddAlbum()" class="add-buttons">Add album</div>
+                    <div id="add-picture-button" onclick="loadAddPicture()" class="add-buttons">Add picture</div>
+                    <div id="rate-album" class="add-buttons">Rate album</div>
+                </div>
             </section>
+            <div id="main-container" class="cf">
+
+                <!----------------------------------->
+                <!------- ALL ALBUMS ARE HERE ------->
+                <!----------------------------------->
+
+                <ul id="album-list">
+                    <li class="album" onclick="openAlbum()">
+                        <h3 class="album-title">Album name example</h3>
+                        <div class="album-pic-holder">
+                            <ul>
+                                <li><img src="images/pic1.jpg"></li>
+                                <li><img src="images/pic2.jpg"></li>
+                                <li><img src="images/pic3.jpg"></li>
+                                <li><img src="images/pic4.jpg"></li>
+
+                            </ul>
+                            <div class="white-overlay"></div>
+                            <div class="hover-black"></div>
+                            <div class="icon-album-hover"></div>
+                        </div>
+                        <footer>
+                            <section class="alb-comments-f">
+                                45 com
+                            </section>
+                            <section class="alb-rating-f">
+                                5.7 / 10
+                            </section>
+                        </footer>
+                    </li>
+                    <li class="album" onclick="openAlbum()">
+                        <h3 class="album-title">Album name example</h3>
+                        <div class="album-pic-holder">
+                            <ul>
+                                <li><img src="images/pic5.jpg"></li>
+                                <li><img src="images/pic6.jpg"></li>
+                                <li><img src="images/pic7.jpg"></li>
+                                <li><img src="images/pic8.jpg"></li>
+                            </ul>
+                            <div class="white-overlay"></div>
+                            <div class="hover-black"></div>
+                            <div class="icon-album-hover"></div>
+                        </div>
+                        <footer>
+                            <section class="alb-comments-f">
+                                45 com
+                            </section>
+                            <section class="alb-rating-f">
+                                5.7 / 10
+                            </section>
+                        </footer>
+                    </li>
+                    <li class="album" onclick="openAlbum()">
+                        <h3 class="album-title">Album name example</h3>
+                        <div class="album-pic-holder">
+                            <ul>
+                                <li><img src="images/pic9.png"></li>
+                                <li><img src="images/pic10.jpg"></li>
+                                <li><img src="images/pic11.jpg"></li>
+                                <li><img src="images/pic1.jpg"></li>
+                            </ul>
+                            <div class="white-overlay"></div>
+                            <div class="hover-black"></div>
+                            <div class="icon-album-hover"></div>
+                        </div>
+                        <footer>
+                            <section class="alb-comments-f">
+                                45 com
+                            </section>
+                            <section class="alb-rating-f">
+                                5.7 / 10
+                            </section>
+                        </footer>
+                    </li>
+                    <li class="album" onclick="openAlbum()">
+                        <h3 class="album-title">Album name example</h3>
+                        <div class="album-pic-holder">
+                            <ul>
+                                <li><img src="images/pic7.jpg"></li>
+                                <li><img src="images/pic10.jpg"></li>
+                                <li><img src="images/pic11.jpg"></li>
+                                <li><img src="images/pic5.jpg"></li>
+                            </ul>
+                            <div class="white-overlay"></div>
+                            <div class="hover-black"></div>
+                            <div class="icon-album-hover"></div>
+                        </div>
+                        <footer>
+                            <section class="alb-comments-f">
+                                45 com
+                            </section>
+                            <section class="alb-rating-f">
+                                5.7 / 10
+                            </section>
+                        </footer>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div id="album-opened-container">
+                <div id="back-button" onclick="collapseAlbum()"></div>
+                <h2 id="opened-album-title">Opened Album Name </h2>
+
+                <ul id="album-images-container">
+                    <li>
+                        <header>
+                            <h3>Picture title is here</h3>
+                        </header>
+                        <section>
+                            <img src="images/pic1.jpg">
+                            <div class="pic-hover" onclick="loadPopup()"></div>
+                        </section>
+                        <footer>
+                            <section class="pic-date">Date: 25.11.2014</section>
+                            <section class="pic-download">Download</section>
+                            <section class="pic-rating">Rating: 6.6 / 10</section>
+                        </footer>
+                    </li>
+                    <li>
+                        <header>
+                            <h3>Picture title is here</h3>
+                        </header>
+                        <section>
+                            <img src="images/pic6.jpg">
+                            <div class="pic-hover" onclick="loadPopup()"></div>
+                        </section>
+                        <footer>
+                            <section class="pic-date">Date: 25.11.2014</section>
+                            <section class="pic-download">Download</section>
+                            <section class="pic-rating">Rating: 6.6 / 10</section>
+                        </footer>
+                    </li>
+                    <li>
+                        <header>
+                            <h3>Picture title is here</h3>
+                        </header>
+                        <section>
+                            <img src="images/pic2.jpg">
+                            <div class="pic-hover" onclick="loadPopup()"></div>
+                        </section>
+                        <footer>
+                            <section class="pic-date">Date: 25.11.2014</section>
+                            <section class="pic-download">Download</section>
+                            <section class="pic-rating">Rating: 6.6 / 10</section>
+                        </footer>
+                    </li>
+                    <li>
+                        <header>
+                            <h3>Picture title is here</h3>
+                        </header>
+                        <section>
+                            <img src="images/pic3.jpg">
+                            <div class="pic-hover" onclick="loadPopup()"></div>
+                        </section>
+                        <footer>
+                            <section class="pic-date">Date: 25.11.2014</section>
+                            <section class="pic-download">Download</section>
+                            <section class="pic-rating">Rating: 6.6 / 10</section>
+                        </footer>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-
-    </div>
-    <div id="popup-add-album" class="popup">
-        <div class="bodysize-close-popup" onclick="closePopup()"></div>
-        <div class="standard-popup">
-            <h2 class="standard-title">Add album</h2>
-            <form>
-                <label for="album-name">NAME: </label><input type="text" id="album-name">
-                <br>
-                <label for="album-category">CATEGORY: </label>
-                <select id="album-category" class="categories-in-dropdown"></select>
-                <br>
-            </form>
-
-            <div id="add-album-submit" class="add-buttons">Add album</div>
+        <div id="popup-picture" class="popup">
+            <div class="bodysize-close-popup" onclick="closePopup()"></div>
+            <div id="popup-picture-container">
+                <section id="popup-picture-image-container">
+                    <img src="images/test1.jpg" id="pic-shown">
+                </section>
+                <section id="popup-picture-comment-container">
+                    <section id="pic-all-comments">
+                        <ul>
+                            <li>
+                                <header>
+                                    <span>Damian Dobrev:</span>
+                                    <span>25.11.2014</span>
+                                </header>
+                                <article>
+                                    The comment itself! The comment itself! The comment itself! The comment itself! The comment itself!
+                                </article>
+                            </li>
+                            <li>
+                                <header>
+                                    <span>Someone Else:</span>
+                                    <span>25.11.2014</span>
+                                </header>
+                                <article>
+                                    The comment itself!
+                                </article>
+                            </li>
+                            <li>
+                                <header>
+                                    <span>Santa Claus:</span>
+                                    <span>25.11.2014</span>
+                                </header>
+                                <article>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </article>
+                            </li>
+                            <li>
+                                <header>
+                                    <span>Santa Claus:</span>
+                                    <span>25.11.2014</span>
+                                </header>
+                                <article>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </article>
+                            </li>
+                            <li>
+                                <header>
+                                    <span>Santa Claus:</span>
+                                    <span>25.11.2014</span>
+                                </header>
+                                <article>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </article>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="add-comment">
+                        <span class="small-title">Add a comment</span>
+                        <form>
+                            <label for="name-for-pic-comment">Name: </label>
+                            <input type="text" id="name-for-pic-comment">
+                            <textarea id="comment-value"></textarea>
+                            <div id="add-comment-button" class="add-buttons">Add comment</div>
+                        </form>
+                    </section>
+                </section>
+            </div>
 
         </div>
-    </div>
-    <div id="popup-add-picture" class="popup">
-        <div class="bodysize-close-popup" onclick="closePopup()"></div>
-        <div class="standard-popup">
-            <h2 class="standard-title">Add picture</h2>
-            <form>
-                <label for="picture-name">NAME: </label><input type="text" id="picture-name">
-                <br>
-                <label for="image-file">CHOOSE A FILE: </label>
-                <input type="file" id="image-file">
-                <br>
-                <div id="add-picture-submit" class="add-buttons">Add picture</div>
-            </form>
+        <div id="popup-add-album" class="popup">
+            <div class="bodysize-close-popup" onclick="closePopup()"></div>
+            <div class="standard-popup">
+                <h2 class="standard-title">Add album</h2>
+                <form>
+                    <label for="album-name">NAME: </label><input type="text" id="album-name">
+                    <br>
+                    <label for="album-category">CATEGORY: </label>
+                    <select id="album-category" class="categories-in-dropdown"></select>
+                    <br>
+                </form>
+
+                <div id="add-album-submit" class="add-buttons">Add album</div>
+
+            </div>
         </div>
+        <div id="popup-add-picture" class="popup">
+            <div class="bodysize-close-popup" onclick="closePopup()"></div>
+            <div class="standard-popup">
+                <h2 class="standard-title">Add picture</h2>
+                <form>
+                    <label for="picture-name">NAME: </label><input type="text" id="picture-name">
+                    <br>
+                    <label for="image-file">CHOOSE A FILE: </label>
+                    <input type="file" id="image-file">
+                    <br>
+                    <div id="add-picture-submit" class="add-buttons">Add picture</div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            footer
+        </footer>
     </div>
-    <footer>
-        footer
-    </footer>
-</div>
-	
-	<!-- TODO: Use require JS -->
-	
-	<script type="text/javascript">
-		Parse.initialize("6bjvgCqdQXoWQGLre6KwR7mmxkCBjF03ClAXLQ6l", "RdajQSeLGu5UDhj8142Kp6xkHIJIatuWuwUifZmW");
-		
-		var GameScore = Parse.Object.extend("Category");
-		console.log(GameScore);
-		var query = new Parse.Query(GameScore);
-		console.log(query);
-		var a = query.find({
-		  success: function(gameScore) {
-		 var jsonArray = [];
 
-        for(var i = 0; i < gameScore.length; i++) {
-           jsonArray.push(gameScore[i].toJSON());
-		  
-        } 
-		console.log(jsonArray);
-		  },
-		  error: function(object, error) {
-			// The object was not retrieved successfully.
-			  console.log("123");
-		  }
-		 
-});
+    <!-- TODO: Use require JS -->
 
-	</script>
-	<script src="scripts/queries.js"></script>
+    <script type="text/javascript">
+        Parse.initialize("6bjvgCqdQXoWQGLre6KwR7mmxkCBjF03ClAXLQ6l", "RdajQSeLGu5UDhj8142Kp6xkHIJIatuWuwUifZmW");
+
+        var GameScore = Parse.Object.extend("Category");
+        console.log(GameScore);
+        var query = new Parse.Query(GameScore);
+        console.log(query);
+        var a = query.find({
+            success: function (gameScore) {
+                var jsonArray = [];
+
+                for (var i = 0; i < gameScore.length; i++) {
+                    jsonArray.push(gameScore[i].toJSON());
+
+                }
+                console.log(jsonArray);
+            },
+            error: function (object, error) {
+                // The object was not retrieved successfully.
+                console.log("123");
+            }
+
+        });
+
+    </script>
+    <script src="scripts/queries.js"></script>
     <script src="scripts/actions.js"></script>
     <script src="scripts/main-script.js"></script>
 </body>
